@@ -1,40 +1,55 @@
-Análise de Filmes IMDb
+Análise de Dados de Filmes do IMDb
 
-Este é um projeto simples de análise de dados de filmes do IMDb usando a linguagem R. O objetivo deste projeto é demonstrar habilidades básicas de manipulação e visualização de dados usando o R.
+Este é um projeto de análise de dados de filmes do IMDb, onde exploramos diferentes aspectos dos filmes, como distribuição do ano de lançamento, duração, classificações e gêneros.
+Objetivo
 
+O objetivo deste projeto é explorar e visualizar os dados de filmes do IMDb para entender melhor padrões e tendências na produção cinematográfica.
+Conjunto de Dados
 
-Descrição
+Os dados foram obtidos do IMDb e consistem em dois conjuntos de dados:
 
-Este projeto utiliza um conjunto de dados do IMDb para realizar algumas etapas básicas de análise de dados:
+    titles: Contém informações sobre os filmes, como título, gênero, duração, ano de lançamento, entre outros.
+    ratings: Contém informações sobre as avaliações dos filmes, incluindo a média de classificação e o número de votos.
 
-    Limpeza de Dados: Os dados são filtrados para incluir apenas filmes e removidos quaisquer entradas com dados ausentes.
-    Análise e Visualização de Dados: A distribuição do ano de lançamento e a duração dos filmes são visualizadas usando histogramas.
-    Salvando Resultados: As visualizações são salvas como imagens PNG em um diretório de plots e os dados limpos são salvos em um arquivo CSV.
+Estrutura do Projeto
 
+    dados: Este diretório contém os conjuntos de dados originais em formato TSV (Tab-Separated Values).
+    plots: Este diretório contém as visualizações geradas a partir dos dados.
+    filmes_limpos.csv: Arquivo CSV contendo os dados limpos e filtrados usados nas análises.
 
-Como Usar
+Análises Realizadas
 
-Para usar este projeto, siga estas etapas:
+    Distribuição do Ano de Lançamento: Visualização da distribuição dos anos de lançamento dos filmes.
+    Distribuição da Duração dos Filmes: Histograma mostrando a distribuição da duração dos filmes em minutos.
+    Distribuição das Classificações dos Filmes: Gráfico de pizza mostrando a distribuição das classificações dos filmes.
+    Distribuição dos Filmes por Gênero: Gráfico de barras mostrando a distribuição dos filmes por gênero.
+    Relação entre Duração e Avaliação dos Filmes: Gráfico de dispersão mostrando a relação entre a duração e a avaliação dos filmes, com uma linha de tendência.
 
-    Pré-requisitos:
-        Instale o software R e o RStudio.
-        Certifique-se de ter os pacotes dplyr e readr instalados.
+Requisitos
 
+    R (https://www.r-project.org/)
+    Pacotes necessários: dplyr, readr, ggplot2
 
-Clone o Repositório:
+Como Executar
 
+    Clone este repositório:
 
-git clone https://github.com/seu-usuario/analise-filmes-imdb.git
+bash
 
-Execute o Script:
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
-    Abra o arquivo analise_filmes.R no RStudio.
-    Defina o diretório de trabalho para o diretório do projeto.
-    Execute o script pressionando Ctrl + Shift + S.
+    Instale os pacotes necessários no R:
 
+R
 
-Verifique os Resultados:
+install.packages(c("dplyr", "readr", "ggplot2"))
 
-    Verifique se o arquivo CSV filmes_limpos.csv foi gerado no diretório do projeto.
+    Execute o script R analise_filmes.R.
 
-    Verifique se as visualizações foram salvas no diretório plots.
+    Os resultados das análises serão gerados na pasta plots.
+
+Contribuição
+
+Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas análises. Basta criar um fork deste repositório, fazer suas alterações e enviar um pull request.
+
+Este README fornece uma visão geral do projeto, incluindo sua estrutura, análises realizadas, requisitos e instruções para execução. Ele é projetado para ser útil para um universitário que está iniciando em projetos de análise de dados.
