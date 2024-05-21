@@ -8,13 +8,10 @@ titles <- read_tsv("title.basics.tsv.gz", na = "\\N")  # Definir "\\N" como NA
 ratings <- read_tsv("title.ratings.tsv.gz", na = "\\N")  # Definir "\\N" como NA
 
 # Combinar os dois conjuntos de dados usando 'tconst'
-
 data <- titles %>%
   inner_join(ratings, by = "tconst")
-
-
-
-
+             
+             
 
 # Limpeza de dados
 
@@ -22,46 +19,36 @@ data <- titles %>%
 filmes <- data %>%
   filter(titleType == "movie")
 
-# 2. Remover entradas com dados ausentes
+# 2. Remover entradas sem dados
 filmes <- filmes %>%
   filter(!is.na(startYear) & !is.na(runtimeMinutes) & runtimeMinutes >= 0 & runtimeMinutes <= 300)
 
-
-# Separar múltiplos gêneros em linhas individuais
+# 3. Separar gêneros em linhas individuais
 filmes <- data %>%
   filter(titleType == "movie") %>%
   separate_rows(genres, sep = ",") %>%
   filter(!is.na(genres))
 
-# Contar o número de filmes por gênero
+# 3. Contar o número de filmes por gênero
 contagem_genero <- filmes %>%
   count(genres, sort = TRUE)
 
-# Filtrar apenas filmes com dados de duração e avaliação
+# 5. Filtrar filmes com dados de duração e avaliação
 filmes <- data %>%
   filter(titleType == "movie" & !is.na(runtimeMinutes) & !is.na(averageRating) & runtimeMinutes <= 300)
 
 
 
 
-
-
-
-
-
 # Gerar e salvar os gráficos
 
-
-
 # Visualização da distribuição do ano de lançamento
-
 png("plots/distribuicao_ano_lancamento.png")
 hist(filmes$startYear, main = "Distribuição do Ano de Lançamento", xlab = "Ano de Lançamento")
 dev.off()
 
 
 # Visualização da distribuição da duração dos filmes
-
 grafico <- ggplot(filmes, aes(x = runtimeMinutes)) +
   geom_histogram(binwidth = 30, fill = "blue", color = "black") +
   scale_x_continuous(breaks = seq(0, 300, by = 30)) +
@@ -70,18 +57,13 @@ grafico <- ggplot(filmes, aes(x = runtimeMinutes)) +
        y = "Número de Filmes") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))  # Centralizar o título do gráfico
-
 png("plots/distribuicao_duracao_filmes.png", width = 800, height = 600)
 print(grafico)
 dev.off()
 
 
 
-
-
-
 # Gráfico pizza de classificação (notas)
-
 grafico_pizza_classificacao <- data %>%
   filter(titleType == "movie" & !is.na(startYear) & !is.na(averageRating)) %>%
   mutate(averageRating = round(averageRating)) %>%
@@ -111,10 +93,7 @@ ggsave("plots/grafico_pizza_classificacao.png", plot = grafico_pizza_classificac
 
 
 
-
-
 # Grafico de barras por gênero
-
 grafico_barras_genero <- ggplot(contagem_genero, aes(x = reorder(genres, -n), y = n)) +
   geom_bar(stat = "identity", fill = "blue") +
   labs(title = "Distribuição dos Filmes por Gênero",
@@ -122,17 +101,11 @@ grafico_barras_genero <- ggplot(contagem_genero, aes(x = reorder(genres, -n), y 
        y = "Número de Filmes") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
 ggsave("plots/grafico_barras_genero.png", plot = grafico_barras_genero, width = 10, height = 6, units = "in")
 
 
 
-
-
-
-# Criar o gráfico de dispersão
-
-
+# Gráfico de dispersão
 grafico_dispersao_duracao_avaliacao <- ggplot(filmes, aes(x = runtimeMinutes, y = averageRating)) +
   geom_point(color = "#0072B2", alpha = 0.6) + # Altera a cor dos pontos e adiciona transparência
   geom_smooth(method = "lm", color = "#D55E00") + # Adiciona uma linha de tendência
@@ -145,10 +118,6 @@ grafico_dispersao_duracao_avaliacao <- ggplot(filmes, aes(x = runtimeMinutes, y 
         axis.line = element_line(colour = "black")) # Adiciona linhas do eixo
 
 ggsave("plots/grafico_dispersao_duracao_avaliacao.png", plot = grafico_dispersao_duracao_avaliacao, width = 10, height = 6, units = "in", dpi = 300)
-
-
-
-
 
 
 # Salvar os dados limpos em um arquivo CSV
