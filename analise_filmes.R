@@ -1,19 +1,52 @@
-# Instalar pacotes necessários (caso ainda não estejam instalados)
-install.packages(c("dplyr", "ggplot2", "readr"))
-
-# Carregar pacotes
+# Carregar pacotes necessários
 library(dplyr)
-library(ggplot2)
-library(readr)
 
-# Definir a URL do conjunto de dados do IMDB
-url <- "https://datasets.imdbws.com/title.basics.tsv.gz"
+# Carregar dados do IMDb
+data <- readr::read_tsv("title.basics.tsv.gz")
 
-# Fazer download do arquivo
-download.file(url, destfile = "title.basics.tsv.gz")
+# Limpeza de dados
 
-# Ler os dados no R
-data <- read_tsv("title.basics.tsv.gz")
+# 1. Filtrar apenas filmes
+filmes <- data %>% 
+  filter(titleType == "movie")
 
-# Inspecionar os dados
-head(data)
+# 2. Remover entradas com dados ausentes
+filmes <- filmes %>% 
+  filter(!is.na(startYear) & !is.na(runtimeMinutes))
+
+# 3. Selecionar colunas relevantes e converter tipos de dados
+filmes <- filmes %>% 
+  select(primaryTitle, startYear, runtimeMinutes, genres) %>%
+  mutate(startYear = as.numeric(startYear),
+         runtimeMinutes = as.numeric(runtimeMinutes))
+
+# Verificar se há problemas de conversão
+if (any(is.na(filmes$startYear))) {
+  # Imprimir linhas com problemas
+  print(filmes[is.na(filmes$startYear), ])
+}
+if (any(is.na(filmes$runtimeMinutes))) {
+  # Imprimir linhas com problemas
+  print(filmes[is.na(filmes$runtimeMinutes), ])
+}
+
+# Análise de dados
+
+
+# Visualização da distribuição do ano de lançamento
+hist(filmes$startYear, main = "Distribuição do Ano de Lançamento", xlab = "Ano de Lançamento")
+
+# Visualização da distribuição da duração dos filmes
+hist(filmes$runtimeMinutes, main = "Distribuição da Duração dos Filmes", xlab = "Duração (minutos)")
+
+# Salvar as visualizações em um diretório de plots
+png("plots/distribuicao_ano_lancamento.png")
+hist(filmes$startYear, main = "Distribuição do Ano de Lançamento", xlab = "Ano de Lançamento")
+dev.off()
+
+png("plots/distribuicao_duracao_filmes.png")
+hist(filmes$runtimeMinutes, main = "Distribuição da Duração dos Filmes", xlab = "Duração (minutos)")
+dev.off()
+
+# Salvar os dados limpos em um arquivo CSV
+write.csv(filmes, "filmes_limpos.csv", row.names = FALSE)
