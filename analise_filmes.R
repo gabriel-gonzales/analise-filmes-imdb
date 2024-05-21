@@ -1,4 +1,3 @@
-
 library(dplyr)
 library(readr)
 library(ggplot2)
@@ -12,6 +11,8 @@ ratings <- read_tsv("title.ratings.tsv.gz", na = "\\N")  # Definir "\\N" como NA
 
 data <- titles %>%
   inner_join(ratings, by = "tconst")
+
+
 
 
 
@@ -39,6 +40,13 @@ contagem_genero <- filmes %>%
 # Filtrar apenas filmes com dados de duração e avaliação
 filmes <- data %>%
   filter(titleType == "movie" & !is.na(runtimeMinutes) & !is.na(averageRating) & runtimeMinutes <= 300)
+
+
+
+
+
+
+
 
 
 # Gerar e salvar os gráficos
@@ -69,6 +77,9 @@ dev.off()
 
 
 
+
+
+
 # Gráfico pizza de classificação (notas)
 
 grafico_pizza_classificacao <- data %>%
@@ -96,8 +107,10 @@ grafico_pizza_classificacao <- data %>%
     "10" = "#17becf"
   ))
 
-# Salvar o gráfico como um arquivo PNG
 ggsave("plots/grafico_pizza_classificacao.png", plot = grafico_pizza_classificacao, width = 8, height = 6)
+
+
+
 
 
 # Grafico de barras por gênero
@@ -111,6 +124,10 @@ grafico_barras_genero <- ggplot(contagem_genero, aes(x = reorder(genres, -n), y 
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggsave("plots/grafico_barras_genero.png", plot = grafico_barras_genero, width = 10, height = 6, units = "in")
+
+
+
+
 
 
 # Criar o gráfico de dispersão
@@ -127,9 +144,9 @@ grafico_dispersao_duracao_avaliacao <- ggplot(filmes, aes(x = runtimeMinutes, y 
         panel.grid.minor = element_blank(), 
         axis.line = element_line(colour = "black")) # Adiciona linhas do eixo
 
-
-# Salvar o gráfico como PNG
 ggsave("plots/grafico_dispersao_duracao_avaliacao.png", plot = grafico_dispersao_duracao_avaliacao, width = 10, height = 6, units = "in", dpi = 300)
+
+
 
 
 
