@@ -1,10 +1,12 @@
 # Análise de Dados de Filmes do IMDb
 
-Este é um projeto de análise de dados de filmes do IMDb, onde exploramos diferentes aspectos dos filmes, como distribuição do ano de lançamento, duração, classificações e gêneros.
-Objetivo
+Este é um projeto de análise de dados de filmes do IMDb, onde foi explorado diferentes aspectos dos filmes, como distribuição do ano de lançamento, duração, classificações e gêneros.
 
-O objetivo deste projeto é explorar e visualizar os dados de filmes do IMDb para entender melhor padrões e tendências na produção cinematográfica.
-Conjunto de Dados
+## Objetivo
+
+O principal objetivo deste projeto é praticar e aprimorar técnicas de análise de dados, enquanto simultaneamente se familiariza com ferramentas essenciais no meio, como Git, GitHub e R.
+
+## Conjunto de Dados
 
 Os dados foram obtidos do IMDb e consistem em dois conjuntos de dados:
 
@@ -14,20 +16,20 @@ ratings: Contém informações sobre as avaliações dos filmes, incluindo a mé
 ## Estrutura do Projeto
 
  dados: Este diretório contém os conjuntos de dados originais em formato TSV (Tab-Separated Values).
-    plots: Este diretório contém as visualizações geradas a partir dos dados.
-    filmes_limpos.csv: Arquivo CSV contendo os dados limpos e filtrados usados nas análises.
+ plots: Este diretório contém as visualizações geradas a partir dos dados.
+ filmes_limpos.csv: Arquivo CSV contendo os dados limpos e filtrados usados nas análises.
 
 ## Análises Realizadas
 
-Distribuição do Ano de Lançamento: Visualização da distribuição dos anos de lançamento dos filmes.
+### Distribuição do Ano de Lançamento: Visualização da distribuição dos anos de lançamento dos filmes.
 
-Distribuição da Duração dos Filmes: Histograma mostrando a distribuição da duração dos filmes em minutos.
+### Distribuição da Duração dos Filmes: Histograma mostrando a distribuição da duração dos filmes em minutos.
 
-Distribuição das Classificações dos Filmes: Gráfico de pizza mostrando a distribuição das classificações dos filmes.
+### Distribuição das Classificações dos Filmes: Gráfico de pizza mostrando a distribuição das classificações dos filmes.
 
-Distribuição dos Filmes por Gênero: Gráfico de barras mostrando a distribuição dos filmes por gênero.
+### Distribuição dos Filmes por Gênero: Gráfico de barras mostrando a distribuição dos filmes por gênero.
 
-Relação entre Duração e Avaliação dos Filmes: Gráfico de dispersão mostrando a relação entre a duração e a avaliação dos filmes, com uma linha de tendência.
+### Relação entre Duração e Avaliação dos Filmes: Gráfico de dispersão mostrando a relação entre a duração e a avaliação dos filmes, com uma linha de tendência.
 
 
 ## Requisitos
