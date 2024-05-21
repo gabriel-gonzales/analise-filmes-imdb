@@ -11,6 +11,7 @@ O principal objetivo deste projeto é praticar e aprimorar técnicas de análise
 Os dados foram obtidos do IMDb e consistem em dois conjuntos de dados:
 
 titles: Contém informações sobre os filmes, como título, gênero, duração, ano de lançamento, entre outros.
+
 ratings: Contém informações sobre as avaliações dos filmes, incluindo a média de classificação e o número de votos.
 
 ## Estrutura do Projeto
