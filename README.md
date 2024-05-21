@@ -21,11 +21,7 @@ Para usar este projeto, siga estas etapas:
         Certifique-se de ter os pacotes dplyr e readr instalados.
 
 
-
-
-
 Clone o Repositório:
-
 
 
 git clone https://github.com/seu-usuario/analise-filmes-imdb.git
@@ -37,11 +33,8 @@ Execute o Script:
     Execute o script pressionando Ctrl + Shift + S.
 
 
-
-
 Verifique os Resultados:
 
     Verifique se o arquivo CSV filmes_limpos.csv foi gerado no diretório do projeto.
-
 
     Verifique se as visualizações foram salvas no diretório plots.
