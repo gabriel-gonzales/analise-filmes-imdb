@@ -17,7 +17,9 @@ ratings: Contém informações sobre as avaliações dos filmes, incluindo a mé
 ## Estrutura do Projeto
 
  dados: Este diretório contém os conjuntos de dados originais em formato TSV (Tab-Separated Values).
+ 
  plots: Este diretório contém as visualizações geradas a partir dos dados.
+ 
  filmes_limpos.csv: Arquivo CSV contendo os dados limpos e filtrados usados nas análises.
 
 ## Análises Realizadas
