@@ -24,15 +24,15 @@ ratings: Contém informações sobre as avaliações dos filmes, incluindo a mé
 
 ## Análises Realizadas
 
-### Distribuição do Ano de Lançamento: Visualização da distribuição dos anos de lançamento dos filmes.
+- Distribuição do Ano de Lançamento: Visualização da distribuição dos anos de lançamento dos filmes.
 
-### Distribuição da Duração dos Filmes: Histograma mostrando a distribuição da duração dos filmes em minutos.
+- Distribuição da Duração dos Filmes: Histograma mostrando a distribuição da duração dos filmes em minutos.
 
-### Distribuição das Classificações dos Filmes: Gráfico de pizza mostrando a distribuição das classificações dos filmes.
+- Distribuição das Classificações dos Filmes: Gráfico de pizza mostrando a distribuição das classificações dos filmes.
 
-### Distribuição dos Filmes por Gênero: Gráfico de barras mostrando a distribuição dos filmes por gênero.
+- Distribuição dos Filmes por Gênero: Gráfico de barras mostrando a distribuição dos filmes por gênero.
 
-### Relação entre Duração e Avaliação dos Filmes: Gráfico de dispersão mostrando a relação entre a duração e a avaliação dos filmes, com uma linha de tendência.
+- Relação entre Duração e Avaliação dos Filmes: Gráfico de dispersão mostrando a relação entre a duração e a avaliação dos filmes, com uma linha de tendência.
 
 
 ## Requisitos
