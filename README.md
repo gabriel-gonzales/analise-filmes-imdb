@@ -62,5 +62,3 @@ Os resultados das análises serão gerados na pasta plots.
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas análises. Basta criar um fork deste repositório, fazer suas alterações e enviar um pull request.
 
 
-
-Este README fornece uma visão geral do projeto, incluindo sua estrutura, análises realizadas, requisitos e instruções para execução. Ele é projetado para ser útil para um universitário que está iniciando em projetos de análise de dados.
